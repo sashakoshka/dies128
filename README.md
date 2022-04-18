@@ -1,6 +1,6 @@
 # 7 bit 128 code digital information encoding standard
 
-dies128 is a conceptual rewrite of the ASCII standard. Various characters have
+dies7 is a conceptual rewrite of the ASCII standard. Various characters have
 been reorganized and aligned, and vestigial non-printables have been discarded
 in favor of newer, more useful ones.
 
@@ -8,7 +8,7 @@ Among its other innovations, it is capable of sending transmissions in a tree
 structure, and transferring frames of arbitrary binary data.
 
 This repository was created for the purpose of organizing information related to
-dies128.
+dies7.
 
 ## basic signals
 
@@ -27,9 +27,9 @@ dies128.
 ## escape sequences
 
 - 08 ser state escape return  (resume previous escape sequence)
-- 09 cse control state escape <esc...> <nil>
-- 10 gse graphic state escape <esc...> <nil>
-- 11 bdf binary data frame    <length> <data...>
+- 09 cse control state escape {esc...} {nil}
+- 10 gse graphic state escape {esc...} {nil}
+- 11 bdf binary data frame    {length} {data...}
 
 ## arbirtary device control codes
 
@@ -40,8 +40,8 @@ dies128.
 
 ## modifier and erasure keys
 
-- 16 mki mod key in  <key id>
-- 17 mko mod key out <key id>
+- 16 mki mod key in      {key id}
+- 17 mko mod key out     {key id}
 - 18 dlb delete backward (backspace)
 - 19 dlf delete forward  (delete)
 
@@ -55,16 +55,16 @@ dies128.
 ## character manipulation
 
 - 24 cmp compose key
-- 25 cmb combine character <one> <two>
-- 26 scs set charset       <charset>
+- 25 cmb combine character {one} {two}
+- 26 scs set charset       {charset}
 - 27 rcs revert charset
 
 ## whitespace characters
 
-- 28 nmr next major row (page)
+- 28 nmr next major row    (page break)
 - 29 nmc next major column (tab)
-- 30 nrw next row (newline)
-- 31 ncl next column (space)
+- 30 nrw next row          (line break)
+- 31 ncl next column       (space)
 
 ## numeric/symbolic printable characters
 
